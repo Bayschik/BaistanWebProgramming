@@ -1,0 +1,7 @@
+{% with current=request.resolver_match.url_name %}
+<nav>
+  <a href="{% url 'pages:home' %}" {% if current == "home" %}class="active"{% endif %}>Главная</a>
+  <a href="{% url 'pages:product_list' %}" {% if current == "product_list" or current == "product_detail" %}class="active"{% endif %}>Каталог</a>
+  <a href="{% url 'pages:course_list' %}" {% if current == "course_list" or current == "course_detail" %}class="active"{% endif %}>Курсы</a>
+</nav>
+{% endwith %}

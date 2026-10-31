@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Мой магазин{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <img src="{% static 'pages/img/logo.svg' %}" alt="Логотип" height="32">
+    {% include "pages/includes/navbar.html" %}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include "pages/includes/footer.html" %}
+  <script src="{% static 'pages/js/app.js' %}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

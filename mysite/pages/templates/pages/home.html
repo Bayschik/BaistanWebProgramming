@@ -1,0 +1,8 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Главная — {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h1>Здравствуйте, {{ user_name }}!</h1>
+  <p>Сегодня {{ today|date:"d.m.Y" }}. В каталоге {{ total }} товаров.</p>
+{% endblock %}

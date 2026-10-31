@@ -1,0 +1,17 @@
+{% extends "pages/base.html" %}
+
+{% block title %}{{ product.name }} — {{ block.super }}{% endblock %}
+
+{% block extra_head %}
+  <style>
+    .price { font-size: 1.6em; color: #1b6a8f; }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ product.name }}</h1>
+  <p class="price">{{ product.price }} сом</p>
+  <p>Категория: {{ product.category|upper }}</p>
+  <p>{{ product.description|default:"Описание отсутствует" }}</p>
+  <p><a href="{% url 'pages:product_list' %}">Назад к каталогу</a></p>
+{% endblock %}

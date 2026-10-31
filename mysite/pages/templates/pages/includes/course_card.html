@@ -1,0 +1,12 @@
+<div class="card">
+  <h3><a href="{% url 'pages:course_detail' item.id %}">{{ item.title }}</a></h3>
+  <p class="course-meta">Преподаватель: {{ item.teacher }} | {{ item.hours }} ак. ч.</p>
+  <p>Цена: <b>{{ item.price }} сом</b></p>
+  <p>
+    {% if item.is_open %}
+      <span class="course-badge badge-open">Идёт набор</span>
+    {% else %}
+      <span class="course-badge badge-closed">Набор закрыт</span>
+    {% endif %}
+  </p>
+</div>

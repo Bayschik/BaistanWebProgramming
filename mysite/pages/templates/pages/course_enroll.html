@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Запись на курс</title></head>
+<body>
+  <h1>Запись на курс</h1>
+  <form method="post">
+    {% csrf_token %}
+    <p>Ваше имя: <input type="text" name="student_name"></p>
+    <p>Название курса: <input type="text" name="course_name"></p>
+    <button type="submit">Записаться</button>
+  </form>
+</body>
+</html>

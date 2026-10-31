@@ -1,0 +1,24 @@
+{% extends "pages/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }} — {{ block.super }}{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'pages/css/courses.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>Всего направлений: <b>{{ courses|length }}</b></p>
+  
+  <div class="grid">
+    {% for item in courses %}
+      {% include "pages/includes/course_card.html" with item=item only %}
+    {% empty %}
+      <p>Курсов пока нет</p>
+    {% endfor %}
+  </div>
+  
+  <p style="margin-top: 20px;"><a href="{% url 'pages:home' %}">На главную</a></p>
+{% endblock %}

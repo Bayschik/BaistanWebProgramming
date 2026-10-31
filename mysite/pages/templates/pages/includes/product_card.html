@@ -1,0 +1,5 @@
+<div class="card">
+  <h3><a href="{% url 'pages:product_detail' item.id %}">{{ item.name }}</a></h3>
+  <p>{{ item.price }} сом</p>
+  <p class="{% if item.in_stock %}ok{% else %}no{% endif %}">{{ item.in_stock|yesno:"в наличии,нет в наличии" }}</p>
+</div>

@@ -1,0 +1,13 @@
+{% extends "pages/base.html" %}
+
+{% block title %}{{ title }} — {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  {% for item in products %}
+    {% include "pages/includes/product_card.html" with item=item only %}
+  {% empty %}
+    <p>Товаров пока нет</p>
+  {% endfor %}
+{% endblock %}
+

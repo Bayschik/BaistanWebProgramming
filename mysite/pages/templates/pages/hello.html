@@ -1,0 +1,7 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Приветствие — {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h1>Привет, {{ name|default:"Гость" }}!</h1>
+{% endblock %}
