@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from datetime import date
 
+#Наконец-то
 MESSAGES = []  # временное хранилище, пока нет базы данных
 
 PRODUCTS = [
