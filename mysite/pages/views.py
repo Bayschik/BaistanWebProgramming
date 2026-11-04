@@ -20,13 +20,12 @@ PRODUCTS = [
 ]
 
 
-# Старый список курсов
-# COURSES = [
-#     {"id": 1, "name": "Python для начинающих", "hours": 36},
-#     {"id": 2, "name": "Веб-разработка на Django", "hours": 48},
-#     {"id": 3, "name": "Алгоритмы и структуры данных", "hours": 24},
-#     {"id": 4, "name": "Базы данных и SQL", "hours": 30},
-# ]
+COURSES2 = [
+    {"id": 1, "name": "Python для начинающих", "hours": 36},
+    {"id": 2, "name": "Веб-разработка на Django", "hours": 48},
+    {"id": 3, "name": "Алгоритмы и структуры данных", "hours": 24},
+    {"id": 4, "name": "Базы данных и SQL", "hours": 30},
+]
 
 COURSES = [
     {"id": 1, "title": "Python для начинающих", "teacher": "Алексей Иванов", "hours": 36, "price": 15000, "is_open": True, "about": "Базовый курс по программированию на Python с нуля."},
@@ -168,14 +167,14 @@ def calculate_square(request, n):
     return HttpResponse(f"Квадрат числа {n} равен {result}")
 
 
-# Старый метод список курсов
-# def course_list(request):
-#     lines = ["<h1>Список курсов</h1>", "<ul>"]
-#     for course in COURSES:
-#         lines.append(f'<li><a href="/courses/{course["id"]}/">{course["name"]}</a> ({course["hours"]} ч.)</li>')
-#     lines.append("</ul>")
-#     lines.append('<br><a href="/courses/enroll/">Записаться на курс</a>')
-#     return HttpResponse("".join(lines))
+def course_list_by_hour(request):
+    context = {
+        "title": "Список курсов",
+        "courses": COURSES2,
+        "total": len(COURSES2),
+    }
+
+    return render(request, "pages/course_list_by_hour.html", context)
 
 
 def course_list(request):

@@ -9,5 +9,6 @@
   <a href="{% url 'pages:feedback' %}" {% if current == "feedback" %}class="active"{% endif %}>Обратная свзяь</a>
   <a href="{% url 'pages:greet' %}" {% if current == "greet" %}class="active"{% endif %}>Приветствие</a>
   <a href="{% url 'pages:about' %}" {% if current == "about" %}class="active"{% endif %}>О нас</a>
+  <a href="{% url 'pages:course_list_by_hour' %}" {% if current == "course_list_by_hour" or current == "course_by_hour_detail" %}class="active"{% endif %}>Курсы по часам</a>
 </nav>
 {% endwith %}

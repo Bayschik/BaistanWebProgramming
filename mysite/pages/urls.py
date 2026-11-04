@@ -26,5 +26,5 @@ urlpatterns = [
     path('courses/enroll/', views.course_enroll, name='course_enroll'),
     path('courses/enroll/done/', views.course_enroll_done, name='course_enroll_done'),
     path('hello/', views.hello, name='hello'),
-
+    path('course_list_by_hour/', views.course_list_by_hour, name='course_list_by_hour'),
 ]

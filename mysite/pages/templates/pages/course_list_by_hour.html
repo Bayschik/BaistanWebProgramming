@@ -1,0 +1,28 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    {{ title }} — {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ title }}</h1>
+
+    <p>Всего курсов: {{ total }}</p>
+
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="/courses/{{ course.id }}/">
+                    {{ course.name }}
+                </a>
+                ({{ course.hours }} ч.)
+            </li>
+        {% empty %}
+            <p>Курсов пока нет</p>
+        {% endfor %}
+    </ul>
+
+    <a href="/courses/enroll/">Записаться на курс</a>
+
+{% endblock %}

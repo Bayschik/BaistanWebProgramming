@@ -1,0 +1,42 @@
+{% extends "pages/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ course.title }} — {{ block.super }}{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'pages/css/courses.css' %}">
+  <style>
+    .price-box { font-size: 1.5em; color: #1b6a8f; font-weight: bold; }
+  </style>
+{% endblock %}
+
+{% block content %}
+  {% with c=course %}
+    <h1>{{ c.title }}</h1>
+    <p>Преподаватель: <b>{{ c.teacher|upper }}</b></p>
+    <p class="course-meta">Длительность: {{ c.hours }} академических часов</p>
+    <p class="price-box">{{ c.price }} сом</p>
+
+    <p>Статус набора:
+      {% if c.is_open %}
+        <span class="course-badge badge-open">Идёт набор</span>
+      {% else %}
+        <span class="course-badge badge-closed">Набор закрыт</span>
+      {% endif %}
+    </p>
+
+    <p><b>О курсе:</b> {{ c.about|default:"Описание отсутствует" }}</p>
+
+    {% if c.price > 30000 %}
+      <p><i>Категория: Профессиональный углубленный курс</i></p>
+    {% elif c.price > 15000 %}
+      <p><i>Категория: Стандартная программа</i></p>
+    {% else %}
+      <p><i>Категория: Базовый интенсив</i></p>
+    {% endif %}
+  {% endwith %}
+
+  <br>
+  <p><a href="{% url 'pages:course_list' %}">Назад к списку курсов</a></p>
+{% endblock %}
