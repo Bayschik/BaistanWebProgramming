@@ -51,24 +51,26 @@ def home(request):
 
 
 def about(request):
-    return HttpResponse("<h1>О нас</h1><p>Мы студенты курса «Веб-программирование».</p>")
+    return render(request, "pages/about.html")
 
 
 def contacts(request):
-    return HttpResponse("<h1>Контакты</h1><p>Email: info@example.com</p>")
+    return render(request, "pages/contacts.html")
 
 
 def services(request):
-    return HttpResponse("<h1>Сервисы и услуги</h1><p>Здесь вы можете найти все наши услуги и сервисы</p>")
+    return render(request, "pages/services.html")
 
 
 def portfolio(request):
-    return HttpResponse("<h1>Портфолио</h1><p>Список всех моих достижений и сделанных проектов</p>")
+    return render(request, "pages/portfolio.html")
 
 
 def greet(request):
-    name = request.GET.get("name", "Гость")
-    return HttpResponse(f"<h1>Привет, {name}!</h1>")
+    context = {
+        "name": request.GET.get("name", "Гость")
+    }
+    return render(request, "pages/greet.html", context)
 
 
 # Старый product_list из практики 5
@@ -127,10 +129,10 @@ def feedback(request):
 
 
 def feedback_done(request):
-    return HttpResponse(
-        f"<h1>Спасибо!</h1><p>Получено сообщений: {len(MESSAGES)}</p>"
-        '<a href="/feedback/">Отправить ещё</a>'
-    )
+    context = {
+        "total": len(MESSAGES),
+    }
+    return render(request, "pages/feedback_done.html", context)
 
 
 def api_products(request):

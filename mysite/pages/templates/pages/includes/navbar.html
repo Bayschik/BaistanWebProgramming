@@ -3,5 +3,11 @@
   <a href="{% url 'pages:home' %}" {% if current == "home" %}class="active"{% endif %}>Главная</a>
   <a href="{% url 'pages:product_list' %}" {% if current == "product_list" or current == "product_detail" %}class="active"{% endif %}>Каталог</a>
   <a href="{% url 'pages:course_list' %}" {% if current == "course_list" or current == "course_detail" %}class="active"{% endif %}>Курсы</a>
+  <a href="{% url 'pages:contacts' %}" {% if current == "contacts" %}class="active"{% endif %}>Контакты</a>
+  <a href="{% url 'pages:services' %}" {% if current == "services" %}class="active"{% endif %}>Сервисы</a>
+  <a href="{% url 'pages:portfolio' %}" {% if current == "portfolio" %}class="active"{% endif %}>Портфолио</a>
+  <a href="{% url 'pages:feedback' %}" {% if current == "feedback" %}class="active"{% endif %}>Обратная свзяь</a>
+  <a href="{% url 'pages:greet' %}" {% if current == "greet" %}class="active"{% endif %}>Приветствие</a>
+  <a href="{% url 'pages:about' %}" {% if current == "about" %}class="active"{% endif %}>О нас</a>
 </nav>
 {% endwith %}

@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Сервисы — {{ block.super }}{% endblock %}
+
+{% block content %}
+ <h1>Сервисы</h1>
+  <form method="post">
+    {% csrf_token %}
+      <p>Здесь вы можете найти все наши услуги и сервисы</p>
+  </form>
+{% endblock %}

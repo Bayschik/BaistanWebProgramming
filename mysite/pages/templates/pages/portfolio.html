@@ -1,0 +1,11 @@
+{% extends "pages/base.html" %}
+
+{% block title %}Портфолио — {{ block.super }}{% endblock %}
+
+{% block content %}
+ <h1>Портфолио</h1>
+  <form method="post">
+    {% csrf_token %}
+      <p>Список всех моих достижений и сделанных проектов</p>
+  </form>
+{% endblock %}
