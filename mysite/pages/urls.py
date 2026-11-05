@@ -23,8 +23,9 @@ urlpatterns = [
     path('square/<int:n>/', views.calculate_square, name='calculate_square'),
     path('courses/', views.course_list, name='course_list'),
     path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
-    path('courses/enroll/', views.course_enroll, name='course_enroll'),
     path('courses/enroll/done/', views.course_enroll_done, name='course_enroll_done'),
     path('hello/', views.hello, name='hello'),
     path('course_list_by_hour/', views.course_list_by_hour, name='course_list_by_hour'),
+    path("courses/<int:course_id>/", views.course_by_hour_detail, name="course_by_hour_detail"),
+    path("courses/<int:course_id>/enroll/", views.course_enroll, name="course_enroll"),
 ]

@@ -1,13 +1,24 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head><meta charset="UTF-8"><title>Запись на курс</title></head>
-<body>
-  <h1>Запись на курс</h1>
-  <form method="post">
+
+<h1>Запись на курс: {{ course.name }}</h1>
+
+<form method="POST">
     {% csrf_token %}
-    <p>Ваше имя: <input type="text" name="student_name"></p>
-    <p>Название курса: <input type="text" name="course_name"></p>
+
+    <label>Ваше имя:</label>
+    <input type="text" name="name" required>
+
+    <br><br>
+
+    <label>Ваш Email:</label>
+    <input type="email" name="email" required>
+
+    <br><br>
+
     <button type="submit">Записаться</button>
-  </form>
-</body>
-</html>
+</form>
+
+<br>
+
+<a href="{% url 'pages:course_by_hour_detail' course.id %}">
+    Назад к курсу
+</a>

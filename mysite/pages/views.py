@@ -183,16 +183,17 @@ def course_list(request):
         "courses": COURSES
     })
 
-# Старый метод подробных курсов
-# def course_detail(request, course_id):
-#     for course in COURSES:
-#         if course["id"] == course_id:
-#             return HttpResponse(
-#                 f"<h1>Курс: {course['name']}</h1>"
-#                 f"<p>Продолжительность: {course['hours']} академических часов</p>"
-#                 '<a href="/courses/">Назад к списку курсов</a>'
-#             )
-#     raise Http404("Курс не найден")
+def course_by_hour_detail(request, course_id):
+    for course in COURSES2:
+        if course["id"] == course_id:
+            context = {
+                "title": "Детали курса",
+                "course": course,
+            }
+            return render(request, "pages/course_by_hour_detail.html", context)
+
+    raise Http404("Курс не найден")
+
 
 
 def course_detail(request, course_id):
@@ -205,14 +206,25 @@ def course_detail(request, course_id):
     raise Http404("Курс не найден")
 
 
-def course_enroll(request):
-    if request.method == "POST":
-        student_name = request.POST.get("student_name", "").strip()
-        course_name = request.POST.get("course_name", "").strip()
-        if student_name and course_name:
-            ENROLLED_STUDENTS.append({"student": student_name, "course": course_name})
-            return redirect("pages:course_enroll_done")
-    return render(request, "pages/course_enroll.html")
+def course_enroll(request, course_id):
+    for course in COURSES:
+        if course["id"] == course_id:
+            if request.method == "POST":
+                name = request.POST.get("name")
+                email = request.POST.get("email")
+
+                if name and email:
+                    return redirect("pages:enroll_success")
+
+            context = {
+                "title": "Запись на курс",
+                "course": course,
+            }
+
+            return render(request, "pages/course_enroll.html", context)
+
+    raise Http404("Курс не найден")
+
 
 
 def course_enroll_done(request):

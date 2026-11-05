@@ -1,5 +1,5 @@
 body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; color: #1b1f33; }
-header { background: #1f2a5e; padding: 12px 24px; display: flex; align-items: center; gap: 24px; }
+header { background: #2e7d32; padding: 12px 24px; display: flex; align-items: center; gap: 24px; }
 nav a { color: #fff; margin-right: 16px; text-decoration: none; }
 nav a.active { border-bottom: 2px solid #fff; }
 main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
